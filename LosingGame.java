@@ -13,8 +13,12 @@ public class LosingGame {
             System.out.println("Welcome to the 'winning' game!\nIf you win, you can earn $2147483647!\nBut if you lose, you will be left with $1\nYou must correctly guess a number between 1 and 1000.\nDo you want to play? (yes/no)");
             String exit = in.nextLine();
             if (!exit.equalsIgnoreCase("yes") && (!exit.equalsIgnoreCase("y"))) {
+                System.out.println("Are you sure?");
+                string rusure = in.nextLine();
+                if (!rusure.equalsIgnoreCase("yes") && (!rusure.equalsIgnoreCase("y"))){
                 System.out.println("Chicken!");
                 break;
+            }
             }
 
             while (startingMoney > 1) {
