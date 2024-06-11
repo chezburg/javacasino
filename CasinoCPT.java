@@ -11,41 +11,44 @@ import java.util.Collections;
 import java.util.List;
 
 public class CasinoCPT {
-
+    // Global variable used to keep money throughout the casino, no matter what game you play you will have the same amount of money
     static int Money = 10000;
     public static void main(String[] args) {
-        System.out.println("Welcome to");
-        System.out.println(" ▄█        ▄██████▄   ▄██████▄      ███      ▄█          ▄████████    ▄█   ▄█▄    ▄████████ \r\n" + //
-                        "███       ███    ███ ███    ███ ▀█████████▄ ███         ███    ███   ███ ▄███▀   ███    ███ \r\n" + //
-                        "███       ███    ███ ███    ███    ▀███▀▀██ ███         ███    ███   ███▐██▀     ███    █▀  \r\n" + //
-                        "███       ███    ███ ███    ███     ███   ▀ ███         ███    ███  ▄█████▀     ▄███▄▄▄     \r\n" + //
-                        "███       ███    ███ ███    ███     ███     ███       ▀███████████ ▀▀█████▄    ▀▀███▀▀▀     \r\n" + //
-                        "███       ███    ███ ███    ███     ███     ███         ███    ███   ███▐██▄     ███    █▄  \r\n" + //
-                        "███▌    ▄ ███    ███ ███    ███     ███     ███▌    ▄   ███    ███   ███ ▀███▄   ███    ███ \r\n" + //
-                        "█████▄▄██  ▀██████▀   ▀██████▀     ▄████▀   █████▄▄██   ███    █▀    ███   ▀█▀   ██████████ \r\n" + //
-                        "▀                                           ▀                        ▀                      ");
-        System.out.println("If you are low on time, stop by our town famous Blackjack and Roulette tables! ");
+        System.out.println("Welcome to the ");
+       System.out.println("   ▄███████▄    ▄████████  ▄██████▄   ▄█    █▄   ▄█  ████████▄     ▄████████ ███▄▄▄▄    ▄████████    ▄████████       ▄████████    ▄████████    ▄████████  ▄█  ███▄▄▄▄    ▄██████▄  \r\n" + //
+                      "  ███    ███   ███    ███ ███    ███ ███    ███ ███  ███   ▀███   ███    ███ ███▀▀▀██▄ ███    ███   ███    ███      ███    ███   ███    ███   ███    ███ ███  ███▀▀▀██▄ ███    ███ \r\n" + //
+                      "  ███    ███   ███    ███ ███    ███ ███    ███ ███▌ ███    ███   ███    █▀  ███   ███ ███    █▀    ███    █▀       ███    █▀    ███    ███   ███    █▀  ███▌ ███   ███ ███    ███ \r\n" + //
+                      "  ███    ███  ▄███▄▄▄▄██▀ ███    ███ ███    ███ ███▌ ███    ███  ▄███▄▄▄     ███   ███ ███         ▄███▄▄▄          ███          ███    ███   ███        ███▌ ███   ███ ███    ███ \r\n" + //
+                      "▀█████████▀  ▀▀███▀▀▀▀▀   ███    ███ ███    ███ ███▌ ███    ███ ▀▀███▀▀▀     ███   ███ ███        ▀▀███▀▀▀          ███        ▀███████████ ▀███████████ ███▌ ███   ███ ███    ███ \r\n" + //
+                      "  ███        ▀███████████ ███    ███ ███    ███ ███  ███    ███   ███    █▄  ███   ███ ███    █▄    ███    █▄       ███    █▄    ███    ███          ███ ███  ███   ███ ███    ███ \r\n" + //
+                      "  ███          ███    ███ ███    ███ ███    ███ ███  ███   ▄███   ███    ███ ███   ███ ███    ███   ███    ███      ███    ███   ███    ███    ▄█    ███ ███  ███   ███ ███    ███ \r\n" + //
+                      " ▄████▀        ███    ███  ▀██████▀   ▀██████▀  █▀   ████████▀    ██████████  ▀█   █▀  ████████▀    ██████████      ████████▀    ███    █▀   ▄████████▀  █▀    ▀█   █▀   ▀██████▀  \r\n" + //
+                      "               ███    ███                                                                                                                                                          ");
+        System.out.println("If you are low on time, stop by our famous Blackjack and Roulette tables! ");
         boolean replay = true;
         Scanner in = new Scanner(System.in);
 
         while (replay) {
             if (Money <= 0) {
-                System.out.println("You're poor. You have $" + Money + " left.");
+                System.out.println(" ");
+                System.out.println("Broke boy! We are kicking you out of the casino, you have $" + Money + " left.");
                 replay = false;
                 break;
             } else {
+                System.out.println("");
                 System.out.println("You have $" + Money);
+                System.out.println("");
                 System.out.println("What do you want to play?");
-                System.out.println("1. Blackjack Battlepass");
+                System.out.println("1. Bushido Blackjack");
                 System.out.println("2. Roulette Royale");
-                System.out.println("3. Slots");
-                System.out.println("4. Beat the Dealer");
-                System.out.println("5. Losing Game");
-                System.out.println("6. Keno");
-                System.out.println("7. Display Chips");
+                System.out.println("3. Sovereign Slots");
+                System.out.println("4. Heroic Hand");
+                System.out.println("5. Wicked Wins");
+                System.out.println("6. Kaiju Keno");
+                System.out.println("7. Exit");
 
                 int betType = getIntInput(in);
-
+                // Main menu to  redirect user to the game they want to play
                 switch (betType) {
                     case 1:
                         new Blackjack().startGame();
@@ -66,9 +69,11 @@ public class CasinoCPT {
                         new KenoGame().startGame();
                         break;
                     case 7:
+                        System.out.println("We didn't want you here anyways, loser!");
+                        System.exit(0);
                         break;
                     default:
-                        System.out.println("Invalid bet type.");
+                        System.out.println("Invalid, please select a game.");
                 }
             }
         }
@@ -107,7 +112,7 @@ public class CasinoCPT {
             // Shows the welcome message and asks if the player wants to see the rules
             System.out.println("Welcome to");
             try {
-                Thread.sleep(1000); // Delay for 1 second so its not a lot at once
+                Thread.sleep(1000); // Delay for 1 second so its not a lot of text at once
                 System.out.println(".");
                 Thread.sleep(1000);
                 System.out.println(".");
@@ -115,15 +120,15 @@ public class CasinoCPT {
                 System.out.println(".");
                 Thread.sleep(1000);
                 System.out.println();
-               System.out.println("▀█████████▄   ▄█          ▄████████  ▄████████    ▄█   ▄█▄      ▄█    ▄████████  ▄████████    ▄█   ▄█▄      ▀█████████▄     ▄████████     ███         ███      ▄█          ▄████████    ▄███████▄    ▄████████    ▄████████    ▄████████ \r\n" + //
-                                      "  ███    ███ ███         ███    ███ ███    ███   ███ ▄███▀     ███   ███    ███ ███    ███   ███ ▄███▀        ███    ███   ███    ███ ▀█████████▄ ▀█████████▄ ███         ███    ███   ███    ███   ███    ███   ███    ███   ███    ███ \r\n" + //
-                                      "  ███    ███ ███         ███    ███ ███    █▀    ███▐██▀       ███   ███    ███ ███    █▀    ███▐██▀          ███    ███   ███    ███    ▀███▀▀██    ▀███▀▀██ ███         ███    █▀    ███    ███   ███    ███   ███    █▀    ███    █▀  \r\n" + //
-                                      " ▄███▄▄▄██▀  ███         ███    ███ ███         ▄█████▀        ███   ███    ███ ███         ▄█████▀          ▄███▄▄▄██▀    ███    ███     ███   ▀     ███   ▀ ███        ▄███▄▄▄       ███    ███   ███    ███   ███          ███        \r\n" + //
-                                      "▀▀███▀▀▀██▄  ███       ▀███████████ ███        ▀▀█████▄        ███ ▀███████████ ███        ▀▀█████▄         ▀▀███▀▀▀██▄  ▀███████████     ███         ███     ███       ▀▀███▀▀▀     ▀█████████▀  ▀███████████ ▀███████████ ▀███████████ \r\n" + //
-                                      "  ███    ██▄ ███         ███    ███ ███    █▄    ███▐██▄       ███   ███    ███ ███    █▄    ███▐██▄          ███    ██▄   ███    ███     ███         ███     ███         ███    █▄    ███          ███    ███          ███          ███ \r\n" + //
-                                      "  ███    ███ ███▌    ▄   ███    ███ ███    ███   ███ ▀███▄     ███   ███    ███ ███    ███   ███ ▀███▄        ███    ███   ███    ███     ███         ███     ███▌    ▄   ███    ███   ███          ███    ███    ▄█    ███    ▄█    ███ \r\n" + //
-                                      "▄█████████▀  █████▄▄██   ███    █▀  ████████▀    ███   ▀█▀ █▄ ▄███   ███    █▀  ████████▀    ███   ▀█▀      ▄█████████▀    ███    █▀     ▄████▀      ▄████▀   █████▄▄██   ██████████  ▄████▀        ███    █▀   ▄████████▀   ▄████████▀  \r\n" + //
-                                      "             ▀                                   ▀         ▀▀▀▀▀▀                            ▀                                                                ▀                                                                          ");
+                System.out.println("▀█████████▄  ███    █▄     ▄████████    ▄█    █▄     ▄█  ████████▄   ▄██████▄       ▀█████████▄   ▄█          ▄████████  ▄████████    ▄█   ▄█▄      ▄█    ▄████████  ▄████████    ▄█   ▄█▄ \r\n" + //
+                                        "  ███    ███ ███    ███   ███    ███   ███    ███   ███  ███   ▀███ ███    ███        ███    ███ ███         ███    ███ ███    ███   ███ ▄███▀     ███   ███    ███ ███    ███   ███ ▄███▀ \r\n" + //
+                                        "  ███    ███ ███    ███   ███    █▀    ███    ███   ███▌ ███    ███ ███    ███        ███    ███ ███         ███    ███ ███    █▀    ███▐██▀       ███   ███    ███ ███    █▀    ███▐██▀   \r\n" + //
+                                        " ▄███▄▄▄██▀  ███    ███   ███         ▄███▄▄▄▄███▄▄ ███▌ ███    ███ ███    ███       ▄███▄▄▄██▀  ███         ███    ███ ███         ▄█████▀        ███   ███    ███ ███         ▄█████▀    \r\n" + //
+                                        "▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀▀███▀▀▀▀███▀  ███▌ ███    ███ ███    ███      ▀▀███▀▀▀██▄  ███       ▀███████████ ███        ▀▀█████▄        ███ ▀███████████ ███        ▀▀█████▄    \r\n" + //
+                                        "  ███    ██▄ ███    ███          ███   ███    ███   ███  ███    ███ ███    ███        ███    ██▄ ███         ███    ███ ███    █▄    ███▐██▄       ███   ███    ███ ███    █▄    ███▐██▄   \r\n" + //
+                                        "  ███    ███ ███    ███    ▄█    ███   ███    ███   ███  ███   ▄███ ███    ███        ███    ███ ███▌    ▄   ███    ███ ███    ███   ███ ▀███▄     ███   ███    ███ ███    ███   ███ ▀███▄ \r\n" + //
+                                        "▄█████████▀  ████████▀   ▄████████▀    ███    █▀    █▀   ████████▀   ▀██████▀       ▄█████████▀  █████▄▄██   ███    █▀  ████████▀    ███   ▀█▀ █▄ ▄███   ███    █▀  ████████▀    ███   ▀█▀ \r\n" + //
+                                        "                                                                                                 ▀                                   ▀         ▀▀▀▀▀▀                            ▀         ");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -158,17 +163,13 @@ public class CasinoCPT {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            // Asking the user to input the number of decks to be used, some casinos go up
-            // to 8 decks, I wanted to give it a wide range without it being too much to
-            // handle
+            // Asking the user to input the number of decks to be used, some casinos go up to 8 decks, I wanted to give it a wide range without it being too much to handle
             System.out.println("Enter the number of decks (1-10):");
             int numDecks = getValidNumDecks();
-            // Creating a new card deck with the specified number of decks (52 x the number
-            // inputted)
+            // Creating a new card deck with the specified number of decks (52 x the number inputted)
             cardDeck = new CardDeck(numDecks);
 
-            // Starting the game as long as the player has at least 5 dollars, if they don't
-            // the game ends.
+            // Starting the game as long as the player has at least 5 dollars, if they don't the game ends.
             while (balance >= minBet) {
                 playRound();
                 if (balance == 0) {
@@ -187,13 +188,12 @@ public class CasinoCPT {
 
         // Method to play one round of the game
         public void playRound() {
-            System.out.flush(); // I wanted to keep the console clean, so looked up a way to clean the console
             System.out.println("Your balance: $" + balance); // Displaying current balance
             int bet = getValidBet();
             balance -= bet;
             cardDeck.shuffleDeck(); // Shuffling the deck of cards
 
-            List<String> playerCards = new ArrayList<>(); // Initializing player's card list
+            List<String> playerCards = new ArrayList<>(); // Creating player's card list
             List<String> dealerCards = new ArrayList<>();
 
             // Dealing initial cards to player and dealer
@@ -206,7 +206,7 @@ public class CasinoCPT {
             int dealerScore = calculateScore(dealerCards);
 
             // Displaying player's initial cards and score
-            System.out.println("Thanks for the money, sucker.");
+            System.out.println("No more bets, best of luck!");
             System.out.println("Your first card is: " + playerCards.get(0));
             System.out.println("Your second card is: " + playerCards.get(1));
             System.out.println("Your card total is: " + playerScore);
@@ -244,7 +244,7 @@ public class CasinoCPT {
                 }
             }
 
-            // Ding the dealers turn and seeing who wins
+            // Starting the dealers turn and seeing who wins
             if (playerScore <= twentyOne) {
                 while (dealerScore < standOn) { // Dealer draws cards until reaching stand threshold
                     dealerCards.add(cardDeck.dealCard());
@@ -395,9 +395,7 @@ public class CasinoCPT {
                     case "Ace":
                         return (currentScore + 11 > 21) ? 1 : 11; // Assigning value for Ace
                     default:
-                        throw new IllegalArgumentException("Unknown card rank: " + rank); // Handling unknown rank (will
-                                                                                          // never happen, but we need a
-                                                                                          // default)
+                        throw new IllegalArgumentException("Unknown card rank: " + rank); // Handling unknown rank (will never happen, but we need a default)
                 }
             }
         }
@@ -689,15 +687,15 @@ public class CasinoCPT {
                     break;
                 }
                 System.out.println("Welcome to ");
-                System.out.println("   ▄████████    ▄████████  ▄█           ███     ▄██   ▄           ▄████████  ▄█        ▄██████▄      ███        ▄████████ \r\n" + //
-        "  ███    ███   ███    ███ ███       ▀█████████▄ ███   ██▄        ███    ███ ███       ███    ███ ▀█████████▄   ███    ███ \r\n" + //
-        "  ███    █▀    ███    ███ ███          ▀███▀▀██ ███▄▄▄███        ███    █▀  ███       ███    ███    ▀███▀▀██   ███    █▀  \r\n" + //
-        "  ███          ███    ███ ███           ███   ▀ ▀▀▀▀▀▀███        ███        ███       ███    ███     ███   ▀   ███        \r\n" + //
-        "▀███████████ ▀███████████ ███           ███     ▄██   ███      ▀███████████ ███       ███    ███     ███     ▀███████████ \r\n" + //
-        "         ███   ███    ███ ███           ███     ███   ███               ███ ███       ███    ███     ███              ███ \r\n" + //
-        "   ▄█    ███   ███    ███ ███▌    ▄     ███     ███   ███         ▄█    ███ ███▌    ▄ ███    ███     ███        ▄█    ███ \r\n" + //
-        " ▄████████▀    ███    █▀  █████▄▄██    ▄████▀    ▀█████▀        ▄████████▀  █████▄▄██  ▀██████▀     ▄████▀    ▄████████▀  \r\n" + //
-        "                          ▀                                                 ▀                                             ");
+                System.out.println("   ▄████████  ▄██████▄   ▄█    █▄     ▄████████    ▄████████    ▄████████  ▄█     ▄██████▄  ███▄▄▄▄           ▄████████  ▄█        ▄██████▄      ███        ▄████████ \r\n" + //
+                                        "  ███    ███ ███    ███ ███    ███   ███    ███   ███    ███   ███    ███ ███    ███    ███ ███▀▀▀██▄        ███    ███ ███       ███    ███ ▀█████████▄   ███    ███ \r\n" + //
+                                        "  ███    █▀  ███    ███ ███    ███   ███    █▀    ███    ███   ███    █▀  ███▌   ███    █▀  ███   ███        ███    █▀  ███       ███    ███    ▀███▀▀██   ███    █▀  \r\n" + //
+                                        "  ███        ███    ███ ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀  ▄███▄▄▄     ███▌  ▄███        ███   ███        ███        ███       ███    ███     ███   ▀   ███        \r\n" + //
+                                        "▀███████████ ███    ███ ███    ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ▀▀███▀▀▀     ███▌ ▀▀███ ████▄  ███   ███      ▀███████████ ███       ███    ███     ███     ▀███████████ \r\n" + //
+                                        "         ███ ███    ███ ███    ███   ███    █▄  ▀███████████   ███    █▄  ███    ███    ███ ███   ███               ███ ███       ███    ███     ███              ███ \r\n" + //
+                                        "   ▄█    ███ ███    ███ ███    ███   ███    ███   ███    ███   ███    ███ ███    ███    ███ ███   ███         ▄█    ███ ███▌    ▄ ███    ███     ███        ▄█    ███ \r\n" + //
+                                        " ▄████████▀   ▀██████▀   ▀██████▀    ██████████   ███    ███   ██████████ █▀     ████████▀   ▀█   █▀        ▄████████▀  █████▄▄██  ▀██████▀     ▄████▀    ▄████████▀  \r\n" + //
+                                        "                                                  ███    ███                                                            ▀                                             ");
                 System.out.println("You have " + chips + " chips. Enter your bet (between " + min_bet + " and " + max_bet + "):");
                 String betInput = in.next();
                 if (Integer.parseInt(betInput) <= chips) {
@@ -775,20 +773,18 @@ public class CasinoCPT {
         private static int chips = Money;
         private static final int WIN_MULTIPLIER = 2;
         private static final Scanner in = new Scanner(System.in);
-
         public void startGame() {
             System.out.println("Welcome to");
-            System.out.println("▀█████████▄   ▄██████▄     ▄██████▄     ▄██████▄   ▄█     ▄████████      ▀█████████▄   ▄██████▄    ▄▄▄▄███▄▄▄▄   ▀█████████▄       ▀█████████▄     ▄████████    ▄████████     ███              ███        ▄█    █▄       ▄████████      ████████▄     ▄████████    ▄████████  ▄█          ▄████████    ▄████████ \r\n" + //
-                                "  ███    ███ ███    ███   ███    ███   ███    ███ ███    ███    ███        ███    ███ ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███        ███    ███   ███    ███   ███    ███ ▀█████████▄      ▀█████████▄   ███    ███     ███    ███      ███   ▀███   ███    ███   ███    ███ ███         ███    ███   ███    ███ \r\n" + //
-                                "  ███    ███ ███    ███   ███    █▀    ███    █▀  ███▌   ███    █▀         ███    ███ ███    ███ ███   ███   ███   ███    ███        ███    ███   ███    █▀    ███    ███    ▀███▀▀██         ▀███▀▀██   ███    ███     ███    █▀       ███    ███   ███    █▀    ███    ███ ███         ███    █▀    ███    ███ \r\n" + //
-                                " ▄███▄▄▄██▀  ███    ███  ▄███         ▄███        ███▌  ▄███▄▄▄           ▄███▄▄▄██▀  ███    ███ ███   ███   ███  ▄███▄▄▄██▀        ▄███▄▄▄██▀   ▄███▄▄▄       ███    ███     ███   ▀          ███   ▀  ▄███▄▄▄▄███▄▄  ▄███▄▄▄          ███    ███  ▄███▄▄▄       ███    ███ ███        ▄███▄▄▄      ▄███▄▄▄▄██▀ \r\n" + //
-                                "▀▀███▀▀▀██▄  ███    ███ ▀▀███ ████▄  ▀▀███ ████▄  ███▌ ▀▀███▀▀▀          ▀▀███▀▀▀██▄  ███    ███ ███   ███   ███ ▀▀███▀▀▀██▄       ▀▀███▀▀▀██▄  ▀▀███▀▀▀     ▀███████████     ███              ███     ▀▀███▀▀▀▀███▀  ▀▀███▀▀▀          ███    ███ ▀▀███▀▀▀     ▀███████████ ███       ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   \r\n" + //
-                                "  ███    ██▄ ███    ███   ███    ███   ███    ███ ███    ███    █▄         ███    ██▄ ███    ███ ███   ███   ███   ███    ██▄        ███    ██▄   ███    █▄    ███    ███     ███              ███       ███    ███     ███    █▄       ███    ███   ███    █▄    ███    ███ ███         ███    █▄  ▀███████████ \r\n" + //
-                                "  ███    ███ ███    ███   ███    ███   ███    ███ ███    ███    ███        ███    ███ ███    ███ ███   ███   ███   ███    ███        ███    ███   ███    ███   ███    ███     ███              ███       ███    ███     ███    ███      ███   ▄███   ███    ███   ███    ███ ███▌    ▄   ███    ███   ███    ███ \r\n" + //
-                                "▄█████████▀   ▀██████▀    ████████▀    ████████▀  █▀     ██████████      ▄█████████▀   ▀██████▀   ▀█   ███   █▀  ▄█████████▀       ▄█████████▀    ██████████   ███    █▀     ▄████▀           ▄████▀     ███    █▀      ██████████      ████████▀    ██████████   ███    █▀  █████▄▄██   ██████████   ███    ███ \r\n" + //
-                                "                                                                                                                                                                                                                                                                             ▀                        ███    ███ ");
             System.out.println("You have " + chips + " chips.");
-
+            System.out.println("   ▄█    █▄       ▄████████    ▄████████  ▄██████▄   ▄█   ▄████████         ▄█    █▄       ▄████████ ███▄▄▄▄   ████████▄  \r\n" + //
+                                "  ███    ███     ███    ███   ███    ███ ███    ███ ███  ███    ███        ███    ███     ███    ███ ███▀▀▀██▄ ███   ▀███ \r\n" + //
+                                "  ███    ███     ███    █▀    ███    ███ ███    ███ ███▌ ███    █▀         ███    ███     ███    ███ ███   ███ ███    ███ \r\n" + //
+                                " ▄███▄▄▄▄███▄▄  ▄███▄▄▄      ▄███▄▄▄▄██▀ ███    ███ ███▌ ███              ▄███▄▄▄▄███▄▄   ███    ███ ███   ███ ███    ███ \r\n" + //
+                                "▀▀███▀▀▀▀███▀  ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   ███    ███ ███▌ ███             ▀▀███▀▀▀▀███▀  ▀███████████ ███   ███ ███    ███ \r\n" + //
+                                "  ███    ███     ███    █▄  ▀███████████ ███    ███ ███  ███    █▄         ███    ███     ███    ███ ███   ███ ███    ███ \r\n" + //
+                                "  ███    ███     ███    ███   ███    ███ ███    ███ ███  ███    ███        ███    ███     ███    ███ ███   ███ ███   ▄███ \r\n" + //
+                                "  ███    █▀      ██████████   ███    ███  ▀██████▀  █▀   ████████▀         ███    █▀      ███    █▀   ▀█   █▀  ████████▀  \r\n" + //
+                                "                              ███    ███                                                                                  ");
             boolean replay = true;
             while (replay) {
                 System.out.println("You have " + chips + " chips.");
@@ -815,7 +811,7 @@ public class CasinoCPT {
                     chips -= bet;
                 } else {
                     System.out.println("It's a tie");
-                    System.out.println("You lose nothing and gain nothing");
+                    System.out.println("You push");
                 }
 
                 System.out.println("You have " + chips + " chips.");
@@ -921,17 +917,31 @@ public class CasinoCPT {
     }
 
     public static class losinggame {
-        public void startGame() {
+        public void startGame() { // Everyhthing done in the main method as this game is relatively short, only around 65 lines
             int chips = Money;
+            // Premise of the game is that you can never win, if you do you get the maximum amount of money able to be stored in an "int"
             int maxChips = 2147483647;
             int betChips = (chips - chips) + 1;
             Scanner in = new Scanner(System.in);
 
             while (true) {
                 int randomNumber = new Random().nextInt(1000) + 1;
-                System.out.println(
-                        "Welcome to the 'winning' game!\nIf you win, you can earn $2147483647!\nBut if you lose, you will be left with $1\nYou must correctly guess a number between 1 and 1000.\nDo you want to play? (yes/no)");
+                System.out.println("Welcome to");
+                        System.out.println(" ▄█     █▄   ▄█   ▄████████    ▄█   ▄█▄    ▄████████ ████████▄        ▄█     █▄   ▄█  ███▄▄▄▄      ▄████████ \r\n" + //
+                                                        "███     ███ ███  ███    ███   ███ ▄███▀   ███    ███ ███   ▀███      ███     ███ ███  ███▀▀▀██▄   ███    ███ \r\n" + //
+                                                        "███     ███ ███▌ ███    █▀    ███▐██▀     ███    █▀  ███    ███      ███     ███ ███▌ ███   ███   ███    █▀  \r\n" + //
+                                                        "███     ███ ███▌ ███         ▄█████▀     ▄███▄▄▄     ███    ███      ███     ███ ███▌ ███   ███   ███        \r\n" + //
+                                                        "███     ███ ███▌ ███        ▀▀█████▄    ▀▀███▀▀▀     ███    ███      ███     ███ ███▌ ███   ███ ▀███████████ \r\n" + //
+                                                        "███     ███ ███  ███    █▄    ███▐██▄     ███    █▄  ███    ███      ███     ███ ███  ███   ███          ███ \r\n" + //
+                                                        "███ ▄█▄ ███ ███  ███    ███   ███ ▀███▄   ███    ███ ███   ▄███      ███ ▄█▄ ███ ███  ███   ███    ▄█    ███ \r\n" + //
+                                                        " ▀███▀███▀  █▀   ████████▀    ███   ▀█▀   ██████████ ████████▀        ▀███▀███▀  █▀    ▀█   █▀   ▄████████▀  \r\n" + //
+                                                        "                              ▀                                                                              ");
+                System.out.println(" If you win, you can earn $2147483647!\\n" + //
+                                        "But if you lose, you will be left with $1\\n" + //
+                                        "You must correctly guess a number between 1 and 1000.\\n" + //
+                                        "Do you want to play? (yes/no)");
                 String exit = in.nextLine();
+                // You will be left with 1 dollar when you lose, wanted to make sure that you understand what you are getting in to
                 if (!exit.equalsIgnoreCase("yes") && (!exit.equalsIgnoreCase("y"))) {
                     System.out.println("Are you sure?");
                     String rusure = in.nextLine();
@@ -940,7 +950,7 @@ public class CasinoCPT {
                         break;
                     }
                 }
-
+                // While you have more than 1 chip, you are able to guess the number, if you are correct you get the max chips
                 while (chips > 1) {
                     System.out.println("You have $" + chips + ". \n\nGuess a number between 1 and 1000:");
                     int playerGuess = in.nextInt();
@@ -955,12 +965,12 @@ public class CasinoCPT {
                         System.out.println("Womp womp! you lost! the number was " + randomNumber);
                     }
                 }
-
+                // If not you are kicked from the game
                 if (chips == 1) {
                     System.out.println("You've run out of money. Game over.");
                     break;
                 }
-
+                // Return to casino
                 System.out.println("Do you want to play again or go back to the casino? (play/casino)");
                 String choice = in.nextLine();
                 if (!choice.equalsIgnoreCase("play")) {
@@ -976,8 +986,9 @@ public class CasinoCPT {
 
     public static class KenoGame {
         public void startGame() {
+            int number = 0;
             int chips = Money;
-            int[] kenoNumbers = new int[20];
+            int[] kenoNumbers = new int[20]; // Numbers randomly drawn
             ArrayList<Integer> p = new ArrayList<>();
             Random random = new Random();
             Scanner in = new Scanner(System.in);
@@ -985,9 +996,9 @@ public class CasinoCPT {
 
             while (playAgain) {
                 int count = 0;
-                int[] pickedNumbers = new int[10];
+                int[] pickedNumbers = new int[10]; // Array to store the numers they picked
                 int same = 0; // Variable to store the count of matching numbers
-
+                // Smart idea to make sure that if there are repeat numbers, the list gets regenerated, and to make sure that it is bound from 1 - 80
                 for (int i = 0; i < 20; i++) {
                     while (true) {
                         kenoNumbers[i] = random.nextInt(80) + 1;
@@ -1000,7 +1011,16 @@ public class CasinoCPT {
                     }
                 }
 
-                System.out.println("Welcome to Keno!");
+                System.out.println("Welcome to");
+                System.out.println("   ▄█   ▄█▄    ▄████████  ▄█       ▄█ ███    █▄          ▄█   ▄█▄    ▄████████ ███▄▄▄▄    ▄██████▄  \r\n" + //
+                                        "  ███ ▄███▀   ███    ███ ███      ███ ███    ███        ███ ▄███▀   ███    ███ ███▀▀▀██▄ ███    ███ \r\n" + //
+                                        "  ███▐██▀     ███    ███ ███▌     ███ ███    ███        ███▐██▀     ███    █▀  ███   ███ ███    ███ \r\n" + //
+                                        " ▄█████▀      ███    ███ ███▌     ███ ███    ███       ▄█████▀     ▄███▄▄▄     ███   ███ ███    ███ \r\n" + //
+                                        "▀▀█████▄    ▀███████████ ███▌     ███ ███    ███      ▀▀█████▄    ▀▀███▀▀▀     ███   ███ ███    ███ \r\n" + //
+                                        "  ███▐██▄     ███    ███ ███      ███ ███    ███        ███▐██▄     ███    █▄  ███   ███ ███    ███ \r\n" + //
+                                        "  ███ ▀███▄   ███    ███ ███      ███ ███    ███        ███ ▀███▄   ███    ███ ███   ███ ███    ███ \r\n" + //
+                                        "  ███   ▀█▀   ███    █▀  █▀   █▄ ▄███ ████████▀         ███   ▀█▀   ██████████  ▀█   █▀   ▀██████▀  \r\n" + //
+                                        "  ▀                           ▀▀▀▀▀▀                    ▀                                           ");
                 System.out.println(" ");
                 System.out.println("Your current balance: $" + chips);
                 System.out.println(" ");
@@ -1022,10 +1042,14 @@ public class CasinoCPT {
 
                 // Deduct the bet from the balance
                 chips -= bet;
-
+                // Error catching to make sure that they dont pick the same number, also makes sure it is an int
                 while (count < 10) {
-                    System.out.print("Enter number " + (count + 1) + ": ");
-                    int number = in.nextInt();
+                    System.out.print("Enter number " + (count + 1) + ": "); 
+                try {
+                    number = in.nextInt();
+                } catch (InputMismatchException e) {
+                    in.next(); // Clear the invalid input
+                }
                     if (number >= 1 && number <= 80) {
                         boolean isDuplicate = false;
                         for (int i = 0; i < count; i++) {
