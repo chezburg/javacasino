@@ -25,7 +25,8 @@ public class CasinoShowfloor {
                 System.out.println("3. Slots");
                 System.out.println("4. Beat the Dealer");
                 System.out.println("5. Losing Game");
-                System.out.println("6. Display Chips");
+                System.out.println("6. Keno");
+                System.out.println("7. Display Chips");
 
                 int betType = getIntInput(in);
 
@@ -46,6 +47,9 @@ public class CasinoShowfloor {
                         new losinggame().startGame();
                         break;
                     case 6:
+                        new KenoGame().startGame();
+                        break;
+                    case 7:
                         System.out.println("You have $" + Money);
                         break;
                     default:
@@ -391,9 +395,9 @@ public class CasinoShowfloor {
                 }
             }
         }
-    
 
     }
+
     public static class RouletteGame {
         private static final int money = 10000;
         private static int chips = money;
@@ -648,6 +652,7 @@ public class CasinoShowfloor {
             }
         }
     }
+
     public static class SlotsGame {
         private static final int money = 1000000000;
         private static final int max_bet = 1000000;
@@ -657,41 +662,41 @@ public class CasinoShowfloor {
         private static final int win_multiplyer = 50;
         private static final int secondary_multiplyer = 2;
         private static boolean replay = true;
-    
+
         public void startGame() {
             int chips = money;
             Random random = new Random();
             Scanner in = new Scanner(System.in);
-    
+
             while (replay) {
                 if (chips <= 0) {
                     System.out.println("You're poor. You have " + chips + " chips left.");
                     replay = false;
                     break;
                 }
-    
+
                 System.out.println(
                         "You have " + chips + " chips. Enter your bet (between " + min_bet + " and " + max_bet + "):");
                 String betInput = in.next();
                 if (Integer.parseInt(betInput) <= chips) {
-    
+
                     try {
                         int bet = Integer.parseInt(betInput);
-    
+
                         if (bet > chips) {
                             bet = chips;
                         }
-    
+
                         if (bet <= 0) {
                             System.out.println("Invalid bet. Exiting game.");
                             break;
                         }
-    
+
                         int[] slots = new int[num_slots];
                         for (int i = 0; i < num_slots; i++) {
                             slots[i] = random.nextInt(max_slots_value + 1);
                         }
-    
+
                         boolean allEqual = true;
                         for (int i = 1; i < num_slots; i++) {
                             if (slots[i] != slots[0]) {
@@ -699,7 +704,7 @@ public class CasinoShowfloor {
                                 break;
                             }
                         }
-    
+
                         boolean twoConsecutiveEqual = false;
                         for (int i = 1; i < num_slots; i++) {
                             if (slots[i] == slots[i - 1]) {
@@ -707,7 +712,7 @@ public class CasinoShowfloor {
                                 break;
                             }
                         }
-    
+
                         if (allEqual) {
                             chips += win_multiplyer * bet;
                             System.out.println("Congratulations! You won " + win_multiplyer * bet + " chips!");
@@ -718,16 +723,16 @@ public class CasinoShowfloor {
                             chips -= bet;
                             System.out.println("You lost " + bet + " chips.");
                         }
-    
+
                         for (int i = 0; i < num_slots; i++) {
                             System.out.print(slots[i] + " ");
                         }
-    
+
                         System.out.println();
                         System.out.println("Your current chips: " + chips);
                         System.out.println("Do you want to replay the game? (yes/no)");
                         String replayInput = in.next();
-    
+
                         if ((replayInput.equalsIgnoreCase("no")) || replayInput.equalsIgnoreCase("n")) {
                             replay = false;
                             break;
@@ -738,38 +743,39 @@ public class CasinoShowfloor {
                     }
                 }
             }
-    
+
             in.close();
         }
     }
+
     public static class beatthedealer {
         private static int MONEY = 10000;
         private static int chips = MONEY;
         private static final int WIN_MULTIPLIER = 2;
         private static final Scanner in = new Scanner(System.in);
-    
+
         public void startGame() {
             System.out.println("Welcome to Beat the Dealer!");
             System.out.println("You have " + chips + " chips.");
-    
+
             boolean replay = true;
             while (replay) {
                 System.out.println("You have " + chips + " chips.");
-    
+
                 int bet = getBet();
-    
+
                 List<Card> deck = createDeck();
                 Collections.shuffle(deck, new Random());
-    
+
                 Card dealerCard = deck.remove(0);
                 Card playerCard = deck.remove(0);
-    
+
                 System.out.println("The dealer draws a card...");
                 System.out.println("Dealer's card: " + dealerCard);
-    
+
                 System.out.println("You draw a card...");
                 System.out.println("Your card: " + playerCard);
-    
+
                 if (playerCard.getRankValue() > dealerCard.getRankValue()) {
                     System.out.println("You win");
                     chips += bet * (WIN_MULTIPLIER - 1);
@@ -780,17 +786,17 @@ public class CasinoShowfloor {
                     System.out.println("It's a tie");
                     System.out.println("You lose nothing and gain nothing");
                 }
-    
+
                 System.out.println("You have " + chips + " chips.");
                 System.out.println("Play again? (yes/no)");
                 String response = in.next();
                 replay = !response.equalsIgnoreCase("no") && !response.equalsIgnoreCase("n");
             }
-    
+
             System.out.println("You leave with " + chips + " chips.");
             MONEY = chips;
         }
-    
+
         private static int getBet() {
             int bet = 0;
             boolean valid = false;
@@ -812,39 +818,39 @@ public class CasinoShowfloor {
             }
             return bet;
         }
-    
+
         private static List<Card> createDeck() {
             String[] suits = { "Hearts", "Diamonds", "Clubs", "Spades" };
             String[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
             List<Card> deck = new ArrayList<>();
-    
+
             for (String suit : suits) {
                 for (String rank : ranks) {
                     deck.add(new Card(suit, rank));
                 }
             }
-    
+
             return deck;
         }
     }
-    
+
     static class Card {
         private String suit;
         private String rank;
-    
+
         public Card(String suit, String rank) {
             this.suit = suit;
             this.rank = rank;
         }
-    
+
         public String getSuit() {
             return suit;
         }
-    
+
         public String getRank() {
             return rank;
         }
-    
+
         public int getRankValue() {
             switch (rank) {
                 case "2":
@@ -877,51 +883,54 @@ public class CasinoShowfloor {
                     return 0;
             }
         }
-    
+
         public String toString() {
             return rank + " of " + suit;
         }
     }
+
     public static class losinggame {
         public void startGame() {
             int Money = 100;
             int chips = Money;
             int maxChips = 2147483647;
-            int betChips = (chips - chips)+ 1;
+            int betChips = (chips - chips) + 1;
             Scanner in = new Scanner(System.in);
-    
+
             while (true) {
                 int randomNumber = new Random().nextInt(1000) + 1;
-                System.out.println("Welcome to the 'winning' game!\nIf you win, you can earn $2147483647!\nBut if you lose, you will be left with $1\nYou must correctly guess a number between 1 and 1000.\nDo you want to play? (yes/no)");
+                System.out.println(
+                        "Welcome to the 'winning' game!\nIf you win, you can earn $2147483647!\nBut if you lose, you will be left with $1\nYou must correctly guess a number between 1 and 1000.\nDo you want to play? (yes/no)");
                 String exit = in.nextLine();
                 if (!exit.equalsIgnoreCase("yes") && (!exit.equalsIgnoreCase("y"))) {
                     System.out.println("Are you sure?");
                     String rusure = in.nextLine();
-                    if (!rusure.equalsIgnoreCase("yes") && (!rusure.equalsIgnoreCase("y"))){
-                    System.out.println("Chicken!");
-                    break;
+                    if (!rusure.equalsIgnoreCase("yes") && (!rusure.equalsIgnoreCase("y"))) {
+                        System.out.println("Chicken!");
+                        break;
+                    }
                 }
-                }
-    
+
                 while (chips > 1) {
                     System.out.println("You have $" + chips + ". \n\nGuess a number between 1 and 1000:");
                     int playerGuess = in.nextInt();
-    
+
                     if (playerGuess == randomNumber) {
-                        System.out.println("Congratulations! You guessed the number correctly. You win $" + maxChips + "!");
+                        System.out.println(
+                                "Congratulations! You guessed the number correctly. You win $" + maxChips + "!");
                         chips = maxChips;
                         break;
                     } else {
                         chips = betChips;
-                        System.out.println("Womp womp! you lost! the number was "+randomNumber);
+                        System.out.println("Womp womp! you lost! the number was " + randomNumber);
                     }
                 }
-    
+
                 if (chips == 1) {
                     System.out.println("You've run out of money. Game over.");
                     break;
                 }
-    
+
                 System.out.println("Do you want to play again or go back to the casino? (play/casino)");
                 String choice = in.nextLine();
                 if (!choice.equalsIgnoreCase("play")) {
@@ -930,8 +939,125 @@ public class CasinoShowfloor {
                     break;
                 }
             }
-    
+
             in.close();
+        }
+    }
+
+    public static class KenoGame {
+        public void startGame() {
+            int[] kenoNumbers = new int[20];
+            ArrayList<Integer> p = new ArrayList<>();
+            Random random = new Random();
+            Scanner in = new Scanner(System.in);
+
+            double balance = 100.0; // Initial balance
+            boolean playAgain = true;
+
+            while (playAgain) {
+                int count = 0;
+                int[] pickedNumbers = new int[10];
+                int same = 0; // Variable to store the count of matching numbers
+
+                for (int i = 0; i < 20; i++) {
+                    while (true) {
+                        kenoNumbers[i] = random.nextInt(80) + 1;
+                        if (p.contains(kenoNumbers[i])) {
+                            continue;
+                        } else {
+                            p.add(kenoNumbers[i]);
+                            break;
+                        }
+                    }
+                }
+
+                System.out.println("Welcome to Keno!");
+                System.out.println(" ");
+                System.out.println("Your current balance: $" + balance);
+                System.out.println(" ");
+                System.out.println("    In this game, you will choose 10 numbers from 1 to 80 (inclusive).");
+                System.out.println(
+                        "    The computer will pick 20 random numbers, and the correct matches determine your payout.");
+                System.out.println("    For example, if you bet $10 and get 4 correct, you win $4!");
+                System.out.println("");
+
+                // Input and validate the bet
+                double bet;
+                do {
+                    System.out.print("Enter your bet (between 1 and " + balance + "): $");
+                    bet = in.nextDouble();
+                    if (bet < 1 || bet > balance) {
+                        System.out.println("Invalid bet. Please enter a valid amount.");
+                    }
+                } while (bet < 1 || bet > balance);
+
+                // Deduct the bet from the balance
+                balance -= bet;
+
+                while (count < 10) {
+                    System.out.print("Enter number " + (count + 1) + ": ");
+                    int number = in.nextInt();
+                    if (number >= 1 && number <= 80) {
+                        boolean isDuplicate = false;
+                        for (int i = 0; i < count; i++) {
+                            if (pickedNumbers[i] == number) {
+                                isDuplicate = true;
+                                break;
+                            }
+                        }
+                        if (!isDuplicate) {
+                            pickedNumbers[count] = number;
+                            count++;
+                        } else {
+                            System.out.println("Number already picked. Choose a different one.");
+                        }
+                    } else {
+                        System.out.println("Invalid input. Please enter a number between 1 and 80.");
+                    }
+                }
+
+                System.out.println("You picked the following numbers:");
+                for (int i = 0; i < 10; i++) {
+                    System.out.print(pickedNumbers[i]);
+                    if (i < 9) {
+                        System.out.print(", "); // Add a comma and space after each number (except the last one)
+                    }
+                    if (p.contains(pickedNumbers[i])) {
+                        same++; // Increment the count of matching numbers
+                    }
+                }
+                System.out.println(""); // Print a newline after the list
+
+                System.out.println("The computer picked:");
+                System.out.println("");
+                for (int f = 0; f < kenoNumbers.length; f++) {
+                    System.out.print(kenoNumbers[f]);
+                    if (f < kenoNumbers.length - 1) {
+                        System.out.print(", ");
+                    }
+                }
+                System.out.println("");
+                System.out.println("Number of matching numbers: " + same);
+
+                // Calculate the payout based on matching numbers
+                double payout = bet * same;
+                balance += payout; // Add the payout to the balance
+
+                System.out.println("Your payout: $" + payout);
+                System.out.println("Your updated balance: $" + balance);
+
+                // Play again or exit
+                System.out.print("Play again? (yes/no): ");
+                String playChoice = in.next().toLowerCase();
+                if (playChoice.equals("no")) {
+                    playAgain = false;
+                    System.out.println("Thank you for playing! Exiting to the casino...");
+                } else {
+                    // Reset for the next round
+                    p.clear();
+                    same = 0;
+                }
+            }
         }
     }
 }
