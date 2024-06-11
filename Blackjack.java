@@ -27,11 +27,11 @@ public class Blackjack {
         try {
             Thread.sleep(1000); // Delay for 1 second so its not a lot at once
             System.out.println(".");
-            Thread.sleep(1000);
+            Thread.sleep(500);
             System.out.println(".");
-            Thread.sleep(1000);
+            Thread.sleep(500);
             System.out.println(".");
-            Thread.sleep(1000);
+            Thread.sleep(500);
             System.out.println();
         System.out.println("▀█████████▄   ▄█          ▄████████  ▄████████    ▄█   ▄█▄      ▄█    ▄████████  ▄████████    ▄█   ▄█▄ \r\n" + //
         "  ███    ███ ███         ███    ███ ███    ███   ███ ▄███▀     ███   ███    ███ ███    ███   ███ ▄███▀ \r\n" + //
@@ -113,12 +113,20 @@ public class Blackjack {
         int dealerScore = calculateScore(dealerCards);
 
         // Displaying player's initial cards and score
-        System.out.println("Thanks for the money, sucker.");
-        System.out.println("Your first card is: " + playerCards.get(0));
-        System.out.println("Your second card is: " + playerCards.get(1));
-        System.out.println("Your card total is: " + playerScore);
-        System.out.println("");
-        System.out.println("The dealer's shown card is: " + dealerCards.get(0));
+        try {
+            System.out.println("No more bets, best of luck!");
+            Thread.sleep(1250);
+            System.out.println("Your first card is: " + playerCards.get(0));
+            Thread.sleep(1250);
+            System.out.println("Your second card is: " + playerCards.get(1));
+            Thread.sleep(1250);
+            System.out.println("Your card total is: " + playerScore);
+            Thread.sleep(1250);
+            System.out.println("");
+            System.out.println("The dealer's shown card is: " + dealerCards.get(0));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // Loop for player's turn
         while (playerScore <= twentyOne) {
@@ -204,7 +212,7 @@ public int calculateScore(List<String> cards) {
 // Method to get a valid bet amount from the player
 public int getValidBet() {
     while (true) {
-        System.out.println("Place your bet (minimum bet is $" + minBet + "):");
+        System.out.println("Your bet, please? (minimum bet is $" + minBet + "):");
         if (in.hasNextInt()) { // Checking if input is an integer
             int bet = in.nextInt();
             if (bet < minBet || bet > balance) {
