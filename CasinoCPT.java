@@ -1,8 +1,3 @@
-//Name: Rand Ali & Evan Chung
-//Title: Casino CPT
-//Date: June, 11, 2024
-//Verified By: Tyler Zhang, Sharon Basovich, Kerry Li
-//Last edited: Jun/11/24/12:36
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
